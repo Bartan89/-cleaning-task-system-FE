@@ -10,6 +10,7 @@ import Login from "./pages/Login"
 
 import Artworks from "./pages/Artworks"
 import ArtworkDetails from "./pages/ArtworkDetails"
+import Auction from "./pages/Auction"
 
 import { useDispatch, useSelector } from "react-redux"
 import { selectAppLoading } from "./store/appState/selectors"
@@ -40,6 +41,7 @@ function App() {
         <Route path="/other" component={Other} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
+        <Route path="/auction" component={Auction} />
         <Route path="/artworks/:id" component={ArtworkDetails} />
       </Switch>
     </div>

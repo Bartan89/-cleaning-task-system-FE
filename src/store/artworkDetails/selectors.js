@@ -3,16 +3,17 @@ export const selectArtworkDetails = state => state.artworkDetails
 // export const minimumBid = () => 0
 
 export const minimumBid = state => {
+  console.log("what is this?", state.artworkDetails.minimumBid)
   if (state.artworkDetails.bids === undefined) {
-    return 0
+    return state.artworkDetails.minimumBid
   }
 
   if (state.artworkDetails.bids === []) {
-    return 0
+    return state.artworkDetails.minimumBid
   }
 
   if (state.artworkDetails.bids.length < 1) {
-    return 0
+    return state.artworkDetails.minimumBid
   }
 
   console.log(state.artworkDetails.bids)
