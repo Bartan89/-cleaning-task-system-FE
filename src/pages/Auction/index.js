@@ -12,7 +12,6 @@ export default function Auction() {
       <h1>hello</h1>
       <AuctionForm />
       <h1>Preview:</h1>
-      <Preview />
     </>
   )
 }

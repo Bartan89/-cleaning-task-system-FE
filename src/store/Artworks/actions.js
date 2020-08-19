@@ -1,5 +1,6 @@
 import { apiUrl, DEFAULT_PAGINATION_LIMIT } from "../../config/constants"
 import axios from "axios"
+import Axios from "axios"
 
 export const FETCH_ARTWORKS_SUCCESS = "FETCH_ARTWORKS_SUCCESS"
 
@@ -16,5 +17,12 @@ export const fetchArtworks = () => {
 
     //console.log(response.data)
     dispatch(fetchArtworksSuccess(response.data.artworks.rows))
+  }
+}
+
+export const postAuction = () => {
+  return async (dispatch, getState) => {
+    const response = await Axios.post("", {})
+    console.log("hello")
   }
 }
