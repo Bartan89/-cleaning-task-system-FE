@@ -28,7 +28,7 @@ export default function MakingABid() {
   return (
     <form onSubmit={sendBid}>
       <label htmlFor="bidder">Amount in EUR:</label>
-      <input onChange={e => setBid(e.target.value)} type="number" value={bid} id="bidder" name="quantity" placeholder="hello" min={minimum} />
+      <input onChange={e => setBid(e.target.value)} type="number" value={bid} id="bidder" name="quantity" placeholder={`bid € ${minimum} or higher`} min={minimum} />
       <input type="submit" />
     </form>
   )
