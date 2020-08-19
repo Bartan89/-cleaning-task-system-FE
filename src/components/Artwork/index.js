@@ -4,8 +4,6 @@ import Button from "react-bootstrap/Button"
 import { Link } from "react-router-dom"
 
 export default function Artwork(props) {
-  console.log("what is", props.bids)
-
   return (
     <Jumbotron
       style={{

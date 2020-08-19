@@ -14,7 +14,7 @@ export const fetchArtworks = () => {
     const homepagesCount = 0
     const response = await axios.get(`${apiUrl}/artworks?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${homepagesCount}`)
 
-    console.log(response.data)
+    //console.log(response.data)
     dispatch(fetchArtworksSuccess(response.data.artworks.rows))
   }
 }

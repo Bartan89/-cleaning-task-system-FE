@@ -2,14 +2,14 @@ import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Jumbotron from "react-bootstrap/Jumbotron"
 import Container from "react-bootstrap/Container"
-import { fetchArtworks } from "../../store/Artworks/actions"
-import { selectArtworks } from "../../store/Artworks/selectors"
+import { fetchArtworks } from "../../store/artworks/actions"
+import { selectArtworks } from "../../store/artworks/selectors"
 import Artwork from "../../components/Artwork"
 
 export default function Artworks() {
   const dispatch = useDispatch()
   const Artworks = useSelector(selectArtworks)
-  console.log("Artworks -> Artworks", Artworks)
+  //console.log("Artworks -> Artworks", Artworks)
 
   useEffect(() => {
     dispatch(fetchArtworks())
