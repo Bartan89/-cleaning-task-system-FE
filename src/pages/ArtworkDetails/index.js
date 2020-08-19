@@ -31,7 +31,7 @@ export default function ArtworkDetails() {
 
       <Row>
         <Col>
-          <Artwork bids={artwork.bids && artwork.bids.length} title={artwork.title} pic={artwork.imageUrl} heart={artwork.heart} showLink={false} />
+          <Artwork bids={artwork.bids && artwork.bids.length} title={artwork.title} pic={artwork.imageUrl} showHeartBtn={true} heart={artwork.heart} showLink={false} />
         </Col>
         <Col>
           <Bids bids={artwork.bids} />

@@ -9,6 +9,7 @@ import Artwork from "../../components/Artwork"
 export default function Artworks() {
   const dispatch = useDispatch()
   const Artworks = useSelector(selectArtworks)
+
   //console.log("Artworks -> Artworks", Artworks)
 
   useEffect(() => {

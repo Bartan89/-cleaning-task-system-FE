@@ -3,6 +3,8 @@ import Jumbotron from "react-bootstrap/Jumbotron"
 import Button from "react-bootstrap/Button"
 import { Link } from "react-router-dom"
 
+import HeartButton from "./HeartButton"
+
 export default function Artwork(props) {
   return (
     <Jumbotron
@@ -23,6 +25,7 @@ export default function Artwork(props) {
           <Button>Learn more</Button>
         </Link>
       ) : null}
+      {props.showHeartBtn ? <HeartButton /> : null}
     </Jumbotron>
   )
 }
