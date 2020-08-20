@@ -13,7 +13,7 @@ export default function Artwork(props) {
       <img className="heroPic" src={props.pic} alt="" />
       <p>{props.description}</p>
       <h2>
-        {props.heart} {props.showHeartBtn ? <HeartButton /> : null}
+        {props.heart} hearts {props.showHeartBtn ? <HeartButton /> : null}
       </h2>
       <p>
         {props.bids} {props.bids === 1 ? "bid" : "bids"}
