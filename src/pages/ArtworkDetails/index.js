@@ -10,6 +10,7 @@ import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import { fetchArtworkById } from "../../store/artworkDetails/actions"
 import { selectArtworkDetails } from "../../store/artworkDetails/selectors"
+import "./style.css"
 
 export default function ArtworkDetails() {
   const { id } = useParams()
@@ -29,18 +30,10 @@ export default function ArtworkDetails() {
         <p>Artist: {artwork.user && artwork.user.name}</p>
       </Jumbotron>
 
-      <Row>
-        <Col>
-          <Artwork bids={artwork.bids && artwork.bids.length} title={artwork.title} pic={artwork.imageUrl} showHeartBtn={true} heart={artwork.heart} showLink={false} />
-        </Col>
-        <Col>
-          <Bids bids={artwork.bids} />
-        </Col>
-      </Row>
-
-      {/* <Container>
-        <StoryCarousel artwork={artwork} />
-      </Container> */}
+      <Artwork bids={artwork.bids && artwork.bids.length} title={artwork.title} pic={artwork.imageUrl} showHeartBtn={true} heart={artwork.heart} showLink={false} />
+      <div className="table">
+        <Bids bids={artwork.bids} />
+      </div>
     </>
   )
 }

@@ -9,6 +9,7 @@ import Axios from "axios"
 import { selectMessage } from "../../store/appState/selectors"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
+import "./style.css"
 
 export default function AuctionForm() {
   const message = useSelector(selectMessage)
@@ -58,80 +59,84 @@ export default function AuctionForm() {
 
   return (
     <div>
-      <Form
-        as={Col}
-        md={{
-          span: 6,
-          offset: 3
-        }}
-        className="mt-5"
-      >
-        <h1 className="mt-5 mb-5">Post one of your artworks to start reveiving orders:</h1>
-        <Form.Group>
-          <Form.Label>Title</Form.Label>
-          <Form.Control
-            value={form.fetching ? "Loading..." : form.title}
-            onChange={(e) =>
-              setForm({
-                ...form,
-                title: e.target.value
-              })
-            }
-            type="text"
-            placeholder="Provide a title"
-            required
-          />
-        </Form.Group>
-        <p>{form.validate.title}</p>
+      <div>
+        <Form
+          as={Col}
+          md={{
+            span: 6,
+            offset: 3
+          }}
+          className="mt-5"
+        >
+          <h3 className="mt-5 mb-5">Post one of your artworks to start reveiving orders:</h3>
+          <Form.Group>
+            <Form.Label>Title</Form.Label>
+            <Form.Control
+              value={form.fetching ? "Loading..." : form.title}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  title: e.target.value
+                })
+              }
+              type="text"
+              placeholder="Provide a title"
+              required
+            />
+          </Form.Group>
+          <p>{form.validate.title}</p>
 
-        <Button variant="primary" type="button" onClick={randomTitle}>
-          Random title
-        </Button>
-
-        <Form.Group>
-          <Form.Label>Image url:</Form.Label>
-          <Form.Control
-            value={form.img}
-            onChange={(e) =>
-              setForm({
-                ...form,
-                imageUrl: e.target.value
-              })
-            }
-            type="text"
-            placeholder="past URL here"
-          />
-        </Form.Group>
-        <p>{form.validate.imageUrl}</p>
-        <Form.Group>
-          <Form.Label>Minimal price in EUR:</Form.Label>
-          <Form.Control
-            value={form.minimumBid}
-            onChange={(e) =>
-              setForm({
-                ...form,
-                minimumBid: e.target.value
-              })
-            }
-            type="number"
-          />
-        </Form.Group>
-
-        {message !== null ? (
-          <>
-            <p>{message.message}</p>
-            <Link to={`artworks/${message.id}`}>Find it here</Link>
-          </>
-        ) : (
-          ""
-        )}
-        <Form.Group className="mt-5">
-          <Button variant="primary" type="submit" onClick={submitForm}>
-            Send!
+          <Button variant="primary" type="button" onClick={randomTitle}>
+            Random title
           </Button>
-        </Form.Group>
-      </Form>
-      <Preview title={form.title === "" ? "Your title here" : form.title} pic={!form.imageUrl ? "https://i.pinimg.com/originals/44/fc/f9/44fcf94c9757d6fe2ef2514a58da49d3.jpg" : form.imageUrl}></Preview>
+
+          <Form.Group>
+            <Form.Label>Image url:</Form.Label>
+            <Form.Control
+              value={form.img}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  imageUrl: e.target.value
+                })
+              }
+              type="text"
+              placeholder="past URL here"
+            />
+          </Form.Group>
+          <p>{form.validate.imageUrl}</p>
+          <Form.Group>
+            <Form.Label>Minimal price in EUR:</Form.Label>
+            <Form.Control
+              value={form.minimumBid}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  minimumBid: e.target.value
+                })
+              }
+              type="number"
+            />
+          </Form.Group>
+
+          {message !== null ? (
+            <>
+              <p>{message.message}</p>
+              <Link to={`artworks/${message.id}`}>Find it here</Link>
+            </>
+          ) : (
+            ""
+          )}
+          <Form.Group className="mt-5">
+            <Button variant="primary" type="submit" onClick={submitForm}>
+              Send!
+            </Button>
+          </Form.Group>
+        </Form>
+      </div>
+      <div className="preview">
+        <Preview title={form.title === "" ? "Your title here" : form.title} pic={!form.imageUrl ? "https://i.pinimg.com/originals/44/fc/f9/44fcf94c9757d6fe2ef2514a58da49d3.jpg" : form.imageUrl}></Preview>
+      </div>
     </div>
   )
 }

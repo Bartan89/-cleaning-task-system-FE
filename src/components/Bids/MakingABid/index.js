@@ -11,25 +11,30 @@ export default function MakingABid() {
   const minimum = useSelector(minimumBid)
   console.log("MakingABid -> minimum", minimum)
 
-  const dynamic = 1000
-
   const [bid, setBid] = useState()
+  const [warning, setWarning] = useState("")
 
   const dispatch = useDispatch()
 
   function sendBid(event) {
+    setWarning("")
     event.preventDefault()
 
     console.log(bid)
-
-    dispatch(processBid(id, bid))
+    console.log("what are you????", typeof bid)
+    if (bid === undefined) {
+      setWarning("provide a number please")
+    } else {
+      dispatch(processBid(id, bid))
+    }
   }
 
   return (
     <form onSubmit={sendBid}>
       <label htmlFor="bidder">Amount in EUR:</label>
-      <input onChange={e => setBid(e.target.value)} type="number" value={bid} id="bidder" name="quantity" placeholder={`bid € ${minimum} or higher`} min={minimum} />
+      <input onChange={(e) => setBid(parseInt(e.target.value))} type="number" value={bid} id="bidder" name="quantity" placeholder={`bid € ${minimum} or higher`} min={minimum} />
       <input type="submit" />
+      <p>{warning}</p>
     </form>
   )
 }

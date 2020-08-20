@@ -1,0 +1,9 @@
+.heartbtn {
+  color: #586f99;
+  width: 10px;
+  cursor: pointer;
+}
+
+.heartbtn:hover {
+  color: rgb(230, 78, 78);
+}

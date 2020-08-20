@@ -1,0 +1,6 @@
+.artworkContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-left: 50px;
+}

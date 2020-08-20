@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button"
 import { useDispatch } from "react-redux"
 import { addHeart } from "../../../store/artworkDetails/actions"
 import { useParams } from "react-router-dom"
+import "./style.css"
 
 export default function HeartButton() {
   const dispatch = useDispatch()
@@ -13,5 +14,9 @@ export default function HeartButton() {
     dispatch(addHeart(id))
   }
 
-  return <Button onClick={heartPlusOne}>Give Heart</Button>
+  return (
+    <div className="heartbtn" onClick={heartPlusOne}>
+      ♡
+    </div>
+  )
 }
