@@ -9,9 +9,7 @@ export default function Auction() {
       <Jumbotron>
         <h1>Start an Auction</h1>
       </Jumbotron>
-      <h1>hello</h1>
       <AuctionForm />
-      <h1>Preview:</h1>
     </>
   )
 }

@@ -10,7 +10,7 @@ export default (state = initialState, action) => {
       return [...action.payload]
 
     case UPDATE_HEART_FROM_DETAILS:
-      return state.map(artwork => {
+      return state.map((artwork) => {
         if (artwork.id === parseInt(action.payload.artworkId)) {
           return { ...artwork, heart: action.payload.heart }
         } else {

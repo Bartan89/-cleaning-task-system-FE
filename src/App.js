@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { selectAppLoading } from "./store/appState/selectors"
 import { getUserWithStoredToken } from "./store/user/actions"
 import { Jumbotron } from "react-bootstrap"
+import { selectIsArtist } from "./store/user/selectors"
 
 const Other = () => (
   <Jumbotron>
@@ -24,6 +25,7 @@ const Other = () => (
 )
 
 function App() {
+  const artist = useSelector(selectIsArtist)
   const dispatch = useDispatch()
   const isLoading = useSelector(selectAppLoading)
 
@@ -41,7 +43,8 @@ function App() {
         <Route path="/other" component={Other} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
-        <Route path="/auction" component={Auction} />
+
+        {artist ? <Route path="/auction" component={Auction} /> : ""}
         <Route path="/artworks/:id" component={ArtworkDetails} />
       </Switch>
     </div>

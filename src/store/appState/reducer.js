@@ -1,30 +1,28 @@
-import {
-  APP_LOADING,
-  APP_DONE_LOADING,
-  SET_MESSAGE,
-  CLEAR_MESSAGE
-} from "./actions";
+import { APP_LOADING, APP_DONE_LOADING, SET_MESSAGE, CLEAR_MESSAGE } from "./actions"
+
+import { SUCCES_UPLOAD_ARTWORK } from "../artworks/actions"
 
 const initialState = {
   loading: false,
-  message: null
-};
+  message: null,
+  serverMessage: null
+}
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case APP_LOADING:
-      return { ...state, loading: true };
+      return { ...state, loading: true }
 
     case APP_DONE_LOADING:
-      return { ...state, loading: false };
+      return { ...state, loading: false }
 
     case SET_MESSAGE:
-      return { ...state, message: action.payload };
+      return { ...state, message: action.payload }
 
     case CLEAR_MESSAGE:
-      return { ...state, message: null };
+      return { ...state, message: null }
 
     default:
-      return state;
+      return state
   }
-};
+}
