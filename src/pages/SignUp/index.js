@@ -30,12 +30,13 @@ export default function SignUp() {
     const email = name
     const isArtist = true
 
-    const names = ['Bart', 'Mikael']
+    const names = ['Bart', 'Camila','Camille', 'Andrej','Miguel']
+
 
     if(names.includes(name)){
       dispatch(signUp(name, email, password, isArtist))
     } else {
-      setError('The person you are trying to add does not live here')
+      setError('The person you are trying to add does not live here. (make sure to add uppercased letter for firstname)')
     }
 
 
