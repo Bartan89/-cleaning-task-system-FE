@@ -4,6 +4,7 @@ import Table from "react-bootstrap/Table"
 import { useSelector } from "react-redux"
 import { selectToken } from "../../store/user/selectors"
 import Badge from "react-bootstrap/Badge"
+import './style.css'
 
 import MakingABid from "./MakingABid"
 
@@ -13,7 +14,7 @@ export default function Bids(props) {
   const token = useSelector(selectToken)
 
   return (
-    <>
+    <div className="sized">
       <h1>Taking up this task:</h1>
       <Table>
         <thead>
@@ -39,6 +40,6 @@ export default function Bids(props) {
           </p>
         </div>
       )}
-    </>
+    </div>
   )
 }

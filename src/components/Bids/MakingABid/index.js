@@ -8,6 +8,7 @@ import { AddCreditToAUser } from "../../../store/users/actions"
 import {selectDidSomeoneBid} from "../../../store/artworkDetails/selectors"
 import Button from "react-bootstrap/Button"
 
+
 export default function MakingABid() {
   const id = useParams().id
 
