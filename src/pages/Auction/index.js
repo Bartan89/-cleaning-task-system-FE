@@ -6,7 +6,7 @@ export default function Auction() {
   return (
     <>
       <Jumbotron>
-        <h1>Start an Auction</h1>
+        <h1>Add a task</h1>
       </Jumbotron>
 
       <AuctionForm />
