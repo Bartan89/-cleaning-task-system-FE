@@ -17,7 +17,7 @@ export default function Bids(props) {
       <h1>Taking up this task:</h1>
       <Table>
         <thead>
-          <th>email</th>
+          <th>Who?</th>
           <th>Credits:</th>
         </thead>
         {props.bids &&

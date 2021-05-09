@@ -10,9 +10,11 @@ import { Col } from "react-bootstrap"
 
 export default function SignUp() {
   const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
+  // const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [isArtist, setArtist] = useState(false)
+  //const [isArtist, setArtist] = useState(false)
+
+  const [error, setError] = useState("")
   const dispatch = useDispatch()
   const token = useSelector(selectToken)
   const history = useHistory()
@@ -24,38 +26,47 @@ export default function SignUp() {
   }, [token, history])
 
   function submitForm(event) {
-    console.log("and here:", isArtist)
     event.preventDefault()
+    const email = name
+    const isArtist = true
 
-    dispatch(signUp(name, email, password, isArtist))
+    const names = ['Bart', 'Mikael']
 
-    setEmail("")
+    if(names.includes(name)){
+      dispatch(signUp(name, email, password, isArtist))
+    } else {
+      setError('The person you are trying to add does not live here')
+    }
+
+
+    //setEmail("")
     setPassword("")
     setName("")
   }
 
-  console.log(isArtist)
+
 
   return (
     <Container>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
         <h1 className="mt-5 mb-5">Signup</h1>
         <Form.Group controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>First Name</Form.Label>
           <Form.Control value={name} onChange={(event) => setName(event.target.value)} type="text" placeholder="Enter name" required />
         </Form.Group>
+        {error}
 
-        <Form.Group controlId="formBasicEmail">
+        {/* <Form.Group controlId="formBasicEmail">
           <Form.Label>Are you a artist?</Form.Label>
           <Form.Control value={isArtist} onChange={(event) => setArtist(!isArtist)} type="checkbox" required />
           <Form.Text className="text-muted"></Form.Text>
-        </Form.Group>
+        </Form.Group> */}
 
-        <Form.Group controlId="formBasicEmail">
+        {/* <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control value={email} onChange={(event) => setEmail(event.target.value)} type="email" placeholder="Enter email" required />
+          <Form.Control value={name} onChange={(event) => setEmail(event.target.value)} type="email" placeholder="Enter email" required />
           <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
-        </Form.Group>
+        </Form.Group> */}
 
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>

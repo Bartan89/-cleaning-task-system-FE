@@ -9,6 +9,7 @@ import Axios from "axios"
 import { selectMessage } from "../../store/appState/selectors"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
+import {images} from "./images"
 import "./style.css"
 
 export default function AuctionForm() {
@@ -18,31 +19,12 @@ export default function AuctionForm() {
   const [form, setForm] = useState({
     title: null,
     imageUrl: null,
-    minimumBid: 200,
+    minimumBid: 10,
     fetching: false,
     validate: { title: "", imageUrl: "" }
   })
 
-  function randomTitle() {
-    async function fetchRandom() {
-      try {
-        setForm({
-          ...form,
-          fetching: true
-        })
-        const randomName = await Axios.get("https://cors-anywhere.herokuapp.com/http://names.drycodes.com/1")
-
-        setForm({
-          ...form,
-          title: randomName.data[0].split("_").join(" "),
-          fetching: false
-        })
-      } catch (error) {
-        console.log(error.message)
-      }
-    }
-    fetchRandom()
-  }
+  
 
   console.log(form)
   function submitForm(event) {
@@ -55,8 +37,14 @@ export default function AuctionForm() {
     } else {
       dispatch(postAuction(form))
     }
-  }
 
+    
+  }
+  
+
+  function handleThumbnail(chosenImg){
+    setForm({...form, imageUrl : chosenImg})
+  }
   return (
     <div>
       <div>
@@ -68,9 +56,9 @@ export default function AuctionForm() {
           }}
           className="mt-5"
         >
-          <h3 className="mt-5 mb-5">Post one of your artworks to start reveiving orders:</h3>
+          <h3 className="mt-5 mb-5">Provide a task for the house to perform:</h3>
           <Form.Group>
-            <Form.Label>Title</Form.Label>
+            <Form.Label>Short description</Form.Label>
             <Form.Control
               value={form.fetching ? "Loading..." : form.title}
               onChange={(e) =>
@@ -86,9 +74,7 @@ export default function AuctionForm() {
           </Form.Group>
           <p>{form.validate.title}</p>
 
-          <Button variant="primary" type="button" onClick={randomTitle}>
-            Random title
-          </Button>
+      
 
           <Form.Group>
             <Form.Label>Image url:</Form.Label>
@@ -101,12 +87,23 @@ export default function AuctionForm() {
                 })
               }
               type="text"
-              placeholder="past URL here"
+              value={form.imageUrl}
+              placeholder="Pick a image below or paste on yourself"
+              
+             
+           
             />
           </Form.Group>
+          <div className="imageWrapper">
+              {images.map(img => {
+                return <><img onClick={() => handleThumbnail(img.link)} className="thumbnailImg" src={img.link} alt="" /></>
+              })}
+          </div>
+          
+
           <p>{form.validate.imageUrl}</p>
           <Form.Group>
-            <Form.Label>Minimal price in EUR:</Form.Label>
+            <Form.Label>How many credits for this task?</Form.Label>
             <Form.Control
               value={form.minimumBid}
               onChange={(e) =>
@@ -116,8 +113,9 @@ export default function AuctionForm() {
                 })
               }
               type="number"
-            />
+              />
           </Form.Group>
+              <p><i>Pick an amount that is reasonable. Per month the aim is to fulfill 200 credits per person</i></p>
 
           {message !== null ? (
             <>
@@ -133,9 +131,6 @@ export default function AuctionForm() {
             </Button>
           </Form.Group>
         </Form>
-      </div>
-      <div className="preview">
-        <Preview title={form.title === "" ? "Your title here" : form.title} pic={!form.imageUrl ? "https://i.pinimg.com/originals/44/fc/f9/44fcf94c9757d6fe2ef2514a58da49d3.jpg" : form.imageUrl}></Preview>
       </div>
     </div>
   )
