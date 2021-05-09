@@ -63,6 +63,8 @@ export const processBid = (id, amount) => {
       }
     )
 
+     console.log(response)
+
     //console.log("response from the server on post bid request", response)
 
     //console.log("\nID: " + id + "\nBID: " + amount + "\nJWT: " + JWT + "\n EMAIL: " + email)

@@ -14,11 +14,11 @@ export default function Bids(props) {
 
   return (
     <>
-      <h1>Bids:</h1>
+      <h1>Taking up this task:</h1>
       <Table>
         <thead>
           <th>email</th>
-          <th>Bid (€)</th>
+          <th>Credits:</th>
         </thead>
         {props.bids &&
           props.bids.map(bid => {

@@ -1,40 +1,53 @@
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { processBid } from "../../../store/artworkDetails/actions"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { minimumBid } from "../../../store/artworkDetails/selectors"
+import { AddCreditToAUser } from "../../../store/users/actions"
+import {selectArtworkDetails} from "../../../store/artworkDetails/selectors"
 
 export default function MakingABid() {
   const id = useParams().id
 
+
+
   const minimum = useSelector(minimumBid)
+
+  const artWorkDetails = useSelector(selectArtworkDetails).bids
+  
+  useEffect(() => {
+    if(artWorkDetails){
+      setPickedUp(true)
+    } else {
+      setPickedUp(false)
+    }
+  }, [])
+
   console.log("MakingABid -> minimum", minimum)
 
   const [bid, setBid] = useState()
   const [warning, setWarning] = useState("")
+  const [pickedUp, setPickedUp] = useState(false)
 
   const dispatch = useDispatch()
 
-  function sendBid(event) {
-    setWarning("")
-    event.preventDefault()
-
-    console.log(bid)
-    console.log("what are you????", typeof bid)
-    if (bid === undefined) {
-      setWarning("provide a number please")
-    } else {
-      dispatch(processBid(id, bid))
-    }
+  function sendBid() {
+  
+    dispatch(processBid(id, minimum))
+    console.log(minimum)
+    dispatch(AddCreditToAUser(minimum ))
+    setPickedUp(false)
+    console.log(artWorkDetails)
   }
 
   return (
-    <form onSubmit={sendBid}>
-      <label htmlFor="bidder">Amount in EUR:</label>
-      <input onChange={(e) => setBid(parseInt(e.target.value))} type="number" value={bid} id="bidder" name="quantity" placeholder={`bid € ${minimum} or higher`} min={minimum} />
-      <input type="submit" />
+    <div>
+      {/* <input onChange={(e) => setBid(parseInt(e.target.value))} type="number" value={bid} id="bidder" name="quantity" placeholder={`bid € ${minimum} or higher`} min={minimum} /> */}
+
       <p>{warning}</p>
-    </form>
+      {pickedUp ? <button onClick={sendBid}>Take up task and receive  {minimum} credits</button>  : ''}
+    </div>
+ 
   )
 }

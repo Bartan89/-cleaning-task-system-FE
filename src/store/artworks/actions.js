@@ -11,6 +11,8 @@ export const fetchArtworksSuccess = (Artworks) => ({
   payload: Artworks
 })
 
+
+
 export const fetchArtworks = () => {
   return async (dispatch, getState) => {
     // const homepagesCount = getState().artworks.length
@@ -21,6 +23,8 @@ export const fetchArtworks = () => {
     dispatch(fetchArtworksSuccess(response.data.artworks.rows))
   }
 }
+
+
 
 const succesfulUploadArtwork = (message, id) => {
   return {

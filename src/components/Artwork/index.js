@@ -2,22 +2,34 @@ import React from "react"
 import Jumbotron from "react-bootstrap/Jumbotron"
 import Button from "react-bootstrap/Button"
 import { Link } from "react-router-dom"
+import { selectUsers } from "../../store/users/selectors"
+import { useSelector } from "react-redux"
+
 import "./artwork.css"
 
 import HeartButton from "./HeartButton"
 
 export default function Artwork(props) {
+const users = useSelector(selectUsers)
+  
+const showPersonTakenUpTask = (cleaner) => {
+    // const founduser = users.filter(e => e.email = cleaner?.email)
+
+    // console.log(founduser?.name)
+    return cleaner?.email
+  
+}
+
   return (
     <div className="artworkCard">
       <h5>{props.title}</h5>
       <img className="heroPic" src={props.pic} alt="" />
       <p>{props.description}</p>
-      <h2>
-        {props.heart} hearts {props.showHeartBtn ? <HeartButton /> : null}
-      </h2>
+
       <p>
-        {props.bids} {props.bids === 1 ? "bid" : "bids"}
+        {props.bids === 0 ? "Task not picked up yet!" : "picked up by: " + showPersonTakenUpTask(props.taskTakenUpBy)}
       </p>
+
       {props.showLink ? (
         <Link to={`/artworks/${props.id}`}>
           <Button>Learn more</Button>

@@ -9,8 +9,8 @@ import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 
 export default function SignUp() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("bart.kuijper89@gmail.com");
+  const [password, setPassword] = useState("b");
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();

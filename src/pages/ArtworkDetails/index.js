@@ -27,7 +27,7 @@ export default function ArtworkDetails() {
     <>
       <Jumbotron>
         <h1>{artwork.title}</h1>
-        <p>Artist: {artwork.user && artwork.user.name}</p>
+        <p>Task created by: {artwork.user && artwork.user.name}</p>
       </Jumbotron>
 
       <Artwork bids={artwork.bids && artwork.bids.length} title={artwork.title} pic={artwork.imageUrl} showHeartBtn={true} heart={artwork.heart} showLink={false} />

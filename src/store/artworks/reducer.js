@@ -1,5 +1,5 @@
-import { FETCH_ARTWORKS_SUCCESS } from "./actions"
 import { PLUS_ONE_HEART as UPDATE_HEART_FROM_DETAILS } from "../artworkDetails/actions"
+import { FETCH_ARTWORKS_SUCCESS } from "./actions"
 //import { ARTWORK_UPDATED } from "../user/actions"
 
 const initialState = []
@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
         } else {
           return { ...artwork }
         }
-      })
+      })        
     // case ARTWORK_UPDATED: {
     //   return state.map(homepage => {
     //     if (homepage.id !== action.payload.id) {
