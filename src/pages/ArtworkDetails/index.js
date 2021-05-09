@@ -31,7 +31,7 @@ export default function ArtworkDetails() {
       </Jumbotron>
 
       <Artwork bids={artwork.bids && artwork.bids.length} title={artwork.title} pic={artwork.imageUrl} showHeartBtn={true} heart={artwork.heart} showLink={false} />
-      <div className="table">
+      <div>
         <Bids bids={artwork.bids} />
       </div>
     </>

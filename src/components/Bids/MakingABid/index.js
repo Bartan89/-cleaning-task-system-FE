@@ -47,12 +47,7 @@ useEffect(() => {
 
   return (
     <div>
-      {/* <input onChange={(e) => setBid(parseInt(e.target.value))} type="number" value={bid} id="bidder" name="quantity" placeholder={`bid € ${minimum} or higher`} min={minimum} /> */}
-
       <p>{warning}</p>
-
-
-
         {artWorkDetails || pickedUp ?  <Button onClick={sendBid}>Take up task and receive  {minimum} credits</Button>  : ''  }
       
     </div>
