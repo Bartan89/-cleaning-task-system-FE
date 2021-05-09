@@ -15,28 +15,22 @@ export default function Bids(props) {
 
   return (
     <div className="sized">
-      <h1>Taking up this task:</h1>
-      <Table>
-        <thead>
-          <th>Who?</th>
-          <th>Credits:</th>
-        </thead>
         {props.bids &&
           props.bids.map(bid => {
             return (
-              <tbody>
-                <td>{bid.email}</td>
-                <td>{bid.amount}</td>
-              </tbody>
+              <>
+                <h2>{bid.email} is taking up this task </h2>
+                <h3><i>For {bid.amount} credits</i></h3>
+              </>
             )
           })}
-      </Table>
+
       {token ? (
         <MakingABid />
       ) : (
         <div>
           <p>
-            <Badge variant="secondary">Want to bid? ... Please log in</Badge>
+            <Badge variant="secondary"> ... Please log in</Badge>
           </p>
         </div>
       )}
