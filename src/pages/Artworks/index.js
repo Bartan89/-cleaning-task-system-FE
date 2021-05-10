@@ -44,7 +44,7 @@ export default function Artworks() {
       </Jumbotron>
       <div className="artworkContainer">
         {Artworks.map((e, i) => {
-          return <Artwork key={i} title={e.title} pic={e.imageUrl} heart={e.heart} bids={e.bids.length} showLink={true} id={e.id} taskTakenUpBy={e.bids[0]}/>
+          return <Artwork key={i} title={e.title} pic={e.imageUrl} cost={e.minimumBid} heart={e.heart} bids={e.bids.length} showLink={true} id={e.id} taskTakenUpBy={e.bids[0]}/>
         })}
       </div>
     </>
