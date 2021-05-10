@@ -10,7 +10,6 @@ import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import { fetchArtworkById } from "../../store/artworkDetails/actions"
 import { selectArtworkDetails } from "../../store/artworkDetails/selectors"
-import "./style.css"
 
 export default function ArtworkDetails() {
   const { id } = useParams()
