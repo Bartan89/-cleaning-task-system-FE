@@ -22,13 +22,13 @@ const showPersonTakenUpTask = (cleaner) => {
 
   return (
     <div className="artworkCard">
-      <h5>{props.title} <span className="king">{props.bids === 0 ? `${props.cost} credits` : ''}</span></h5>
+      <h5>{props.title}</h5>
       <img className="heroPic" src={props.pic} alt="" />
       <p>{props.description}</p>
 
    
       <p>
-        {props.bids === 0 ? "Task not picked up yet!" : "picked up by: " + showPersonTakenUpTask(props.taskTakenUpBy)}
+        {props.bids === 0 ? <span className="king">Receive: {props.cost} credits</span> : "picked up by: " + showPersonTakenUpTask(props.taskTakenUpBy)}
       </p>
 
       {props.showLink ? (
