@@ -10,7 +10,7 @@ import { Col } from "react-bootstrap";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("b");
+  const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();
