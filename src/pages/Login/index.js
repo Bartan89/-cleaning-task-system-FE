@@ -26,7 +26,7 @@ export default function SignUp() {
 
     dispatch(login(email, password));
 
-    setEmail("");
+    setEmail("TESTTEST");
     setPassword("");
   }
 
