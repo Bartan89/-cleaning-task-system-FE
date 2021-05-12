@@ -18,11 +18,9 @@ import { getUserWithStoredToken } from "./store/user/actions"
 import { Jumbotron } from "react-bootstrap"
 import { selectIsArtist } from "./store/user/selectors"
 
-const Other = () => (
-  <Jumbotron>
-    <h1>Other</h1>
-  </Jumbotron>
-)
+import Groceries from "./pages/Groceries/index"
+
+
 
 function App() {
   const artist = useSelector(selectIsArtist)
@@ -40,7 +38,7 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Switch>
                        <Route exact path="/" component={Artworks} />
-        <Route path="/other" component={Other} />
+        <Route path="/groceries" component={Groceries} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
 

@@ -26,7 +26,7 @@ export default function Navigation() {
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem path="/" linkText="Tasks" />
           {artist ? <NavbarItem path="/auction" linkText="Add a task" /> : ""}
-          {/* <NavbarItem path="/other" linkText="House rules" /> */}
+          <NavbarItem path="/groceries" linkText="Groceries" />
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>
