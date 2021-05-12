@@ -4,7 +4,7 @@ import Jumbotron from "react-bootstrap/Jumbotron"
 import Container from "react-bootstrap/Container"
 import { fetchArtworks } from "../../store/artworks/actions"
 import { fetchUsersAndTheirNames } from "../../store/users/actions"
-import { selectArtworks } from "../../store/artworks/selectors"
+import { selectArtworks, selectArtworksThatAreDone } from "../../store/artworks/selectors"
 import Artwork from "../../components/Artwork"
 import { selectUsers } from "../../store/users/selectors"
 import "./style.css"
@@ -12,6 +12,7 @@ import "./style.css"
 export default function Artworks() {
   const dispatch = useDispatch()
   const Artworks = useSelector(selectArtworks)
+  const ArtworksThatAreDone = useSelector(selectArtworksThatAreDone)
   const Users = useSelector(selectUsers)
 
   //console.log("Artworks -> Artworks", Artworks)
@@ -44,7 +45,22 @@ export default function Artworks() {
       </Jumbotron>
       <div className="artworkContainer">
         {Artworks.map((e, i) => {
-          return <Artwork key={i} title={e.title} pic={e.imageUrl} cost={e.minimumBid} heart={e.heart} bids={e.bids.length} showLink={true} id={e.id} taskTakenUpBy={e.bids[0]}/>
+
+            return <Artwork key={i} title={e.title} pic={e.imageUrl} cost={e.minimumBid} heart={e.heart} bids={e.bids.length} showLink={true} id={e.id} taskTakenUpBy={e.bids[0]}/>
+
+        })}
+      </div>
+
+      <Jumbotron>
+        <h4>
+        Tasks done:
+          </h4>
+      </Jumbotron>
+      <div className="artworkContainer">
+        {ArtworksThatAreDone.map((e, i) => {
+
+            return <Artwork key={i} title={e.title} pic={e.imageUrl} cost={e.minimumBid} heart={e.heart} bids={e.bids.length} showLink={true} id={e.id} taskTakenUpBy={e.bids[0]}/>
+
         })}
       </div>
     </>
