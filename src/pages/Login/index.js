@@ -40,7 +40,7 @@ export default function SignUp() {
             value={email}
             onChange={event => setEmail(event.target.value)}
             type="email"
-            placeholder="Enter email"
+            placeholder="Enter name"
             required
           />
         </Form.Group>

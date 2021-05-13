@@ -37,15 +37,15 @@ export default function Artworks() {
   return (
     <>
     <br />
-    <h5>Make sure you <span className="king">reach 200 credits</span> at the end of this month</h5>
+    <h5>Make sure you <span className="king">reach 200 credits ℂ</span> at the end of this month</h5>
     <div className="cardWrapper">
       {Users.map((user, i) => {
         return (
           <div className="card">
          
-          <h6 className="name">{user.name} {i === 0 ? <span className="king">♛</span> : ''}</h6>
+          <p className="name">{user.name} {i === 0 ? <span className="king">♛</span> : ''}</p>
 
-          <h6>Credit: {user.credit}</h6>
+          <span className="king">ℂ {user.credit}</span>
       <div>
   </div>
 </div>)})}

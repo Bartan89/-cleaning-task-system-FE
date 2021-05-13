@@ -28,7 +28,7 @@ const showPersonTakenUpTask = (cleaner) => {
 
    
       <p>
-        {props.bids === 0 ? <span className="king">Receive: {props.cost} credits</span> : "picked up by: " + showPersonTakenUpTask(props.taskTakenUpBy)}
+        {props.bids === 0 ? <span className="king">Receive: ℂ {props.cost}</span> : "picked up by: " + showPersonTakenUpTask(props.taskTakenUpBy)}
       </p>
 
       {props.showLink ? (

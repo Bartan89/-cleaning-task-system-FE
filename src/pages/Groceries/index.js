@@ -30,7 +30,7 @@ export default function Groceries() {
             value={email}
             onChange={event => setEmail(event.target.value)}
             type="email"
-            placeholder="Enter email"
+            placeholder="Enter Name"
             required
           />
         </Form.Group>
